@@ -5,10 +5,20 @@ import TopBlock from "./components/TopBlock/TopBlock";
 import BottomBlock from "./components/BottomBlock/BottomBlock";
 import { createStore } from 'redux';
 import  "./reducers/index";
-function App() {
-    const initialState = { color: "yellow"};
-    const store = createStore(reducer, initialState);
+import {yel, rdd, blc} from './actions/index'
 
+function App() {
+
+ const store = createStore(reducer);
+ const { dispatch } = store;
+
+ const bindActionCreator = (creator, dispatch) => (...args) => {
+     dispatch(creator(...args));
+ }
+
+ const yelDispatch = bindActionCreator(yel, dispatch);
+ const rddDispatch = bindActionCreator(rdd, dispatch);
+ const blcDispatch = bindActionCreator(blc, dispatch);
 
   return (
     <div className="App">
@@ -25,7 +35,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-            И цвет заданный в стейте = {store.getState().color}
+            И цвет заданный в стейте ={/* {store.getState().color}*/}
         </a>
           <BottomBlock />
       </header>

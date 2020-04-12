@@ -3,22 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import TopBlock from "./components/TopBlock/TopBlock";
 import BottomBlock from "./components/BottomBlock/BottomBlock";
-import { createStore } from 'redux';
 import  "./reducers/index";
-import {yel, rdd, blc} from './actions/index'
 
 function App() {
 
- const store = createStore(reducer);
- const { dispatch } = store;
-
- const bindActionCreator = (creator, dispatch) => (...args) => {
-     dispatch(creator(...args));
- }
-
- const yelDispatch = bindActionCreator(yel, dispatch);
- const rddDispatch = bindActionCreator(rdd, dispatch);
- const blcDispatch = bindActionCreator(blc, dispatch);
 
   return (
     <div className="App">

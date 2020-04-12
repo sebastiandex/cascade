@@ -1,4 +1,4 @@
-const reducer = (state = {}, action) => {
+const reducer = (state = {color: "white"}, action) => {
     switch (action.type) {
         case 'SET_YELLOW':
             return {color:"yellow"};

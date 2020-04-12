@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from 'react-redux';
+import * as actions from '../../../actions';
 
 class BottomChild extends React.Component {
     SomeFunction = (param) => {
@@ -13,5 +15,13 @@ class BottomChild extends React.Component {
         );
 
     }
-}
-export default BottomChild;
+};
+
+const mapStateToProps = (state) => {
+    return {
+        color: state
+    }
+};
+
+
+export default connect(mapStateToProps, actions)(BottomChild);
